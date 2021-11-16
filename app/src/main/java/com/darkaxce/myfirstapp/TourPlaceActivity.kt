@@ -8,4 +8,5 @@ class TourPlaceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tour_place)
     }
+    //
 }

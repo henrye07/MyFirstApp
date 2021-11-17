@@ -27,5 +27,4 @@ class TourPlaceActivity : AppCompatActivity() {
         val adapter= TourPlaceAdapter(listTour)
         recycler.adapter=adapter
     }
-    //
 }

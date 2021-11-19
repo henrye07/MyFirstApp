@@ -9,8 +9,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val boton : Button = findViewById(R.id.button_start)
-        boton.setOnClickListener{
+        val buttonStart : Button = findViewById(R.id.button_start)
+        buttonStart.setOnClickListener{
             val intent = Intent(this,TourPlaceActivity::class.java)
             startActivity(intent)
         }

@@ -1,12 +1,12 @@
 package com.darkaxce.myfirstapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
 import java.io.IOException
 import java.nio.charset.Charset
 
@@ -21,9 +21,22 @@ class TourPlaceActivity : AppCompatActivity() {
     private fun initRecycler(){
         val recycler: RecyclerView = findViewById(R.id.listTourPlace)
         recycler.layoutManager=LinearLayoutManager(this)
-        val adapter= TourPlaceAdapter(createListTourPLace())
+        val adapter= TourPlaceAdapter(createListTourPLace()){
+            val intent = Intent(this,DetailPlaceActivity::class.java).apply{
+                putExtra("name",it.name)
+                putExtra("description",it.description)
+                putExtra("rating",it.rating)
+                putExtra("img",it.img)
+                putExtra("temperature",it.temperature)
+                putExtra("location",it.location)
+                putExtra("recommended",it.recommendedPlaces)
+            }
+
+            startActivity(intent)
+        }
         recycler.adapter=adapter
     }
+
     private fun getJSONFromAssets() : String?{
         var json: String? = null
         val charset: Charset = Charsets.UTF_8
@@ -51,7 +64,10 @@ class TourPlaceActivity : AppCompatActivity() {
                 val description = placeInfo.getString("description")
                 val rating = placeInfo.getDouble("rating")
                 val img = placeInfo.getString("img")
-                val placeDetails= TourPlace(img,name,description,rating)
+                val temperature = placeInfo.getString("temperature")
+                val location = placeInfo.getString("location")
+                val recommendedPlaces = placeInfo.getString("recommendedPlaces")
+                val placeDetails= TourPlace(img,name,description,rating,temperature,location,recommendedPlaces)
                 listTourPlace.add(placeDetails)
             }
         }catch (e: JSONException){
@@ -60,3 +76,4 @@ class TourPlaceActivity : AppCompatActivity() {
         return listTourPlace
     }
 }
+

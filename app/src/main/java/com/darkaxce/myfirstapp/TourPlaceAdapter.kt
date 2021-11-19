@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class TourPlaceAdapter(private val tourPlace : List<TourPlace>) : RecyclerView.Adapter<TourPlaceAdapter.PlaceHolder>() {
+class TourPlaceAdapter(private val tourPlace : ArrayList<TourPlace> ) : RecyclerView.Adapter<TourPlaceAdapter.PlaceHolder>() {
 
     override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): PlaceHolder {
         val view= LayoutInflater
@@ -33,7 +33,7 @@ class TourPlaceAdapter(private val tourPlace : List<TourPlace>) : RecyclerView.A
         fun render(tourPlace : TourPlace){
             name.text=tourPlace.name
             description.text=tourPlace.description
-            rating.rating= tourPlace.rating
+            rating.rating= tourPlace.rating.toString().toFloat()
             Picasso.get().load(tourPlace.img).into(image)
         }
     }

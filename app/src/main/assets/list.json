@@ -1,0 +1,22 @@
+[
+  {"img":"https://loremflickr.com/450/450",
+    "name":"name1",
+    "description":"description1",
+    "rating":"5.0"},
+  {"img":"https://loremflickr.com/450/450",
+    "name":"name2",
+    "description":"description2",
+    "rating":"4.5"},
+  {"img":"https://loremflickr.com/450/450",
+    "name":"name3",
+    "description":"description3",
+    "rating":"3.5"},
+  {"img":"https://loremflickr.com/450/450",
+    "name":"name4",
+    "description":"description4",
+    "rating":"2.5"},
+  {"img":"https://loremflickr.com/450/450",
+    "name":"name5",
+    "description":"description5",
+    "rating":"1.5"}
+]

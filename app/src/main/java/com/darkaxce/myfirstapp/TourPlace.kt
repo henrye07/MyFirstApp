@@ -1,5 +1,7 @@
 package com.darkaxce.myfirstapp
 
+import java.io.Serializable
+
 data class TourPlace(
     val img:String,
     val name:String,
@@ -8,4 +10,4 @@ data class TourPlace(
     val temperature:String,
     val location: String,
     val recommendedPlaces: String
-    )
+    ): Serializable

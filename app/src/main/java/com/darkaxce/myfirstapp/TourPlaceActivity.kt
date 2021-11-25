@@ -23,15 +23,8 @@ class TourPlaceActivity : AppCompatActivity() {
         recycler.layoutManager=LinearLayoutManager(this)
         val adapter= TourPlaceAdapter(createListTourPLace()){
             val intent = Intent(this,DetailPlaceActivity::class.java).apply{
-                putExtra("name",it.name)
-                putExtra("description",it.description)
-                putExtra("rating",it.rating)
-                putExtra("img",it.img)
-                putExtra("temperature",it.temperature)
-                putExtra("location",it.location)
-                putExtra("recommended",it.recommendedPlaces)
+                putExtra("detailsPlace",it)
             }
-
             startActivity(intent)
         }
         recycler.adapter=adapter

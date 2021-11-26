@@ -43,7 +43,9 @@ class ListTourPlaceFragment : Fragment() {
         }
     }
     private fun openDetailPlace(tourPlace: TourPlace) {
-        findNavController().navigate(ListTourPlaceFragmentDirections.actionListTourPlaceFragmentToDetailTourPlaceFragment(tourPlace))
+        findNavController().navigate(
+            ListTourPlaceFragmentDirections
+                .actionListTourPlaceFragmentToDetailTourPlaceFragment(tourPlace))
     }
     private fun getJSONFromAssets() : String?{
         var json: String? = null

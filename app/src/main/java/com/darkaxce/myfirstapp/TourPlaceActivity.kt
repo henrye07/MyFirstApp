@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.darkaxce.myfirstapp.databinding.ActivityTourPlaceBinding
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
@@ -12,22 +13,26 @@ import java.nio.charset.Charset
 
 class TourPlaceActivity : AppCompatActivity() {
 
+    private lateinit var listBinding: ActivityTourPlaceBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_tour_place)
+        listBinding = ActivityTourPlaceBinding.inflate(layoutInflater)
+        setContentView(listBinding.root)
         initRecycler()
     }
 
     private fun initRecycler(){
-        val recycler: RecyclerView = findViewById(R.id.listTourPlace)
-        recycler.layoutManager=LinearLayoutManager(this)
         val adapter= TourPlaceAdapter(createListTourPLace()){
             val intent = Intent(this,DetailPlaceActivity::class.java).apply{
                 putExtra("detailsPlace",it)
             }
             startActivity(intent)
         }
-        recycler.adapter=adapter
+        listBinding.listTourPlace.apply {
+            layoutManager=LinearLayoutManager(context)
+            listBinding.listTourPlace.adapter=adapter
+        }
     }
 
     private fun getJSONFromAssets() : String?{

@@ -3,8 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/listTourPlaceFragment">
+    app:startDestination="@id/mainFragment">
 
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.appwithfragments.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_listTourPlaceFragment"
+            app:destination="@id/listTourPlaceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listTourPlaceFragment"
         android:name="com.example.appwithfragments.listPOI.ListTourPlaceFragment"

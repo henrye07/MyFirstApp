@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appwithfragments.databinding.FragmentListTourPlaceBinding
+import com.example.appwithfragments.main.MainActivity
 import com.example.appwithfragments.models.TourPlace
 import org.json.JSONArray
 import org.json.JSONException
@@ -19,6 +20,11 @@ import java.nio.charset.Charset
 class ListTourPlaceFragment : Fragment() {
 
     private lateinit var listTourPlaceBinding: FragmentListTourPlaceBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        (activity as MainActivity?)?.showIcon()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

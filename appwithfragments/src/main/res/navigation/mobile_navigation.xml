@@ -33,4 +33,8 @@
             android:name="detailPlace"
             app:argType="com.example.appwithfragments.models.TourPlace" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.appwithfragments.preference.SettingsFragment"
+        android:label="SettingsFragment" />
 </navigation>
